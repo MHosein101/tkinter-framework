@@ -1,7 +1,8 @@
+from abc import ABC, abstractmethod
 from TkApp import *
 
 
-class AppWindow:
+class AppWindow(ABC):
     _window_props = ()
     _controller = None
     _app_window = None
@@ -34,15 +35,19 @@ class AppWindow:
         if hasattr(self._controller, "afterClose"):
             getattr(self._controller, "afterClose")(self, self._app_window)
 
+    @abstractmethod
     def setupUi(self, window):
         pass
 
+    @abstractmethod
     def setupPositions(self, window):
         pass
 
+    @abstractmethod
     def setupEvents(self, window):
         pass
 
+    @abstractmethod
     def setupMenu(self):
         return {}
 
