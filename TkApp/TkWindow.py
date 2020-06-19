@@ -36,7 +36,7 @@ class TkWindow:
         return self._menu["main"]
 
     def getSubMenu(self):
-        return self._menu["child"]
+        return self._menu["sub"]
 
     def getContainer(self, frame_name):
         return self._containers[frame_name]
@@ -224,12 +224,6 @@ class TkWindow:
 
     def minimize(self):
         self._window.iconify()
-
-    def minSize(self, minW, minH):
-        self._window.minsize(minW, minH)
-
-    def maxSize(self, maxW, maxH):
-        self._window.maxsize(maxW, maxH)
 
     def quit(self):
         self._window.quit()
