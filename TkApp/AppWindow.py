@@ -2,7 +2,7 @@ from TkApp import *
 
 
 class AppWindow:
-    _window_props = {}
+    _window_props = ()
     _controller = None
     _app_window = None
 
@@ -11,23 +11,34 @@ class AppWindow:
         self._app_window = TkWindow(self._window_props[0], self._window_props[1])
         self.setupUi(self._app_window)
         self.setupEvents(self._app_window)
+        self.setupPositions(self._app_window)
+        self.beforeStart(self._app_window)
         self._app_window.start()
+        self.afterStart(self._app_window)
 
     def setupUi(self, window):
-        # for useing event handlers -> self.setHandler("login_btn_click")
+        pass
+
+    def setupPositions(self, window):
         pass
 
     def setupEvents(self, window):
         pass
 
-    def setHandler(self, name):
+    def beforeStart(self, window):
+        pass
+
+    def afterStart(self, window):
+        pass
+
+    def getHandler(self, name):
         return getattr(self._controller, name)
 
     def window(self):
         return self._app_window
 
+    def rootWindow(self):
+        return self._app_window.getWindow()
+
     def exit(self, win):
-        if isinstance(win, TkWindow):
-            win.exit()
-        else:
-            win.quit()
+        win.quit()

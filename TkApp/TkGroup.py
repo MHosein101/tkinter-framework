@@ -28,28 +28,44 @@ class TkGroup:
 
     # WIDGET CONFIGS ----------------------------------------------------------------------
 
-    def thisConfig(self,options):
+    def thisConfig(self, options=None):
+        if options is None:
+            options = {}
         self._parent.getWidget(self._name_id).config(options)
 
-    def thisPack(self, options):
+    def thisPack(self, options=None):
+        if options is None:
+            options = {}
         self._parent.getWidget(self._name_id).pack(options)
 
-    def thisGrid(self, options):
+    def thisGrid(self, options=None):
+        if options is None:
+            options = {}
         self._parent.getWidget(self._name_id).grid(options)
 
-    def thisPlace(self, options):
+    def thisPlace(self, options=None):
+        if options is None:
+            options = {}
         self._parent.getWidget(self._name_id).place(options)
 
-    def config(self, name_id, options):
+    def config(self, name_id, options=None):
+        if options is None:
+            options = {}
         self._parent.getWidget(name_id).config(options)
 
-    def pack(self, name_id, options):
+    def pack(self, name_id, options=None):
+        if options is None:
+            options = {}
         self._parent.getWidget(name_id).pack(options)
 
-    def grid(self, name_id, options):
+    def grid(self, name_id, options=None):
+        if options is None:
+            options = {}
         self._parent.getWidget(name_id).grid(options)
 
-    def place(self, name_id, options):
+    def place(self, name_id, options=None):
+        if options is None:
+            options = {}
         self._parent.getWidget(name_id).place(options)
 
     # ----------------------------------------------------------------------
@@ -121,70 +137,4 @@ class TkGroup:
         lstbx = Listbox(self._group, options)
         self._parent.newWidget(name_id, lstbx)
         self._widgets[name_id] = lstbx
-        return self
-
-    # EVENTS ----------------------------------------------------------------------
-
-    def thisOnEvent(self, event_name, event_listener):
-        self.getWidget(self._name_id).bind(event_name, event_listener)
-        return self
-
-    def thisOnClick(self, event_listener):
-        self.getWidget(self._name_id).bind("<Button-1>", event_listener)
-        return self
-
-    def thisOnDblClick(self, event_listener):
-        self.getWidget(self._name_id).bind("<Double-Button-1>", event_listener)
-        return self
-
-    def thisOnFocusIn(self, event_listener):
-        self.getWidget(self._name_id).bind("<FocusIn>", event_listener)
-        return self
-
-    def thisOnFocusOut(self, event_listener):
-        self.getWidget(self._name_id).bind("<FocusOut>", event_listener)
-        return self
-
-    def thisOnKeyPress(self, event_listener):
-        self.getWidget(self._name_id).bind("<Key>", event_listener)
-        return self
-
-    def thisOnEnter(self, event_listener):
-        self.getWidget(self._name_id).bind("<Enter>", event_listener)
-        return self
-
-    def thisOnLeave(self, event_listener):
-        self.getWidget(self._name_id).bind("<Leave>", event_listener)
-        return self
-
-    def onEvent(self, widget_name, event_name, event_listener):
-        self.getWidget(widget_name).bind(event_name, event_listener)
-        return self
-
-    def onClick(self, widget_name, event_listener):
-        self.getWidget(widget_name).bind("<Button-1>", event_listener)
-        return self
-
-    def onDblClick(self, widget_name, event_listener):
-        self.getWidget(widget_name).bind("<Double-Button-1>", event_listener)
-        return self
-
-    def onFocusIn(self, widget_name, event_listener):
-        self.getWidget(widget_name).bind("<FocusIn>", event_listener)
-        return self
-
-    def onFocusOut(self, widget_name, event_listener):
-        self.getWidget(widget_name).bind("<FocusOut>", event_listener)
-        return self
-
-    def onKeyPress(self, widget_name, event_listener):
-        self.getWidget(widget_name).bind("<Key>", event_listener)
-        return self
-
-    def onEnter(self, widget_name, event_listener):
-        self.getWidget(widget_name).bind("<Enter>", event_listener)
-        return self
-
-    def onLeave(self, widget_name, event_listener):
-        self.getWidget(widget_name).bind("<Leave>", event_listener)
         return self
