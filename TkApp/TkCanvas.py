@@ -5,7 +5,6 @@ class TkCanvas:
     _board = None
     _parent = None
     _name_id = ""
-    _objects = {}
 
     def __init__(self, parent, name_id, options=None):
         if options is None:
@@ -18,14 +17,7 @@ class TkCanvas:
     def getBoard(self):
         return self._board
 
-    def getItem(self, name_id):
-        return self._board[name_id]
-
     # OBJECTS ----------------------------------------------------------------------
-
-    def image(self, x1, y1, image, options={}):
-        options["image"] = PhotoImage(file=image)
-        return self._board.create_image(x1, y1, options)
 
     def arc(self, coords, options={}):
         return self._board.create_arc(coords, options)

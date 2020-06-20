@@ -28,26 +28,6 @@ class TkGroup:
 
     # WIDGET CONFIGS ----------------------------------------------------------------------
 
-    def thisConfig(self, options=None):
-        if options is None:
-            options = {}
-        self._parent.getWidget(self._name_id).config(options)
-
-    def thisPack(self, options=None):
-        if options is None:
-            options = {}
-        self._parent.getWidget(self._name_id).pack(options)
-
-    def thisGrid(self, options=None):
-        if options is None:
-            options = {}
-        self._parent.getWidget(self._name_id).grid(options)
-
-    def thisPlace(self, options=None):
-        if options is None:
-            options = {}
-        self._parent.getWidget(self._name_id).place(options)
-
     def config(self, name_id, options=None):
         if options is None:
             options = {}

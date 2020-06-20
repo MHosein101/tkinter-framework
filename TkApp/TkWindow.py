@@ -10,13 +10,7 @@ class TkWindow:
         "main": None,
         "sub": {}
     }
-
-    _containers = {}
     _widgets = {}
-
-    _packageDesignLayout = False
-    _layoutSchema = None
-    _userDesignLayout = False
 
     # WINDOW ----------------------------------------------------------------------
 
@@ -37,12 +31,6 @@ class TkWindow:
 
     def getSubMenu(self):
         return self._menu["sub"]
-
-    def getContainer(self, frame_name):
-        return self._containers[frame_name]
-
-    def getContainersCount(self):
-        return len(self._containers)
 
     def getWidget(self, widget_name):
         return self._widgets[widget_name]
@@ -101,7 +89,6 @@ class TkWindow:
         return self
 
     def newFrame(self, name_id, container):
-        self._containers[name_id] = container
         self._widgets[name_id] = container
         return self
 
