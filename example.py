@@ -1,4 +1,4 @@
-import MainWindow
+import DrawingCanvasWindow
 
-# Create Window And Start App
-MainWindow.View(MainWindow.Controller)
+# Start the app
+DrawingCanvasWindow.run()

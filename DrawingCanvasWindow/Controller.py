@@ -22,11 +22,11 @@ class Controller:
         y1 = event.y - 5
         x2 = event.x + 5
         y2 = event.y + 5
-        canvas.line((x1, y1, x2, y2), {"fill": "#476042"})
+        canvas.line((x1, y1, x2, y2), { "fill" : "#476042" })
 
     # Menu Button Clicked
     def menu_file_exit(self):
-        # You alson have access to View class and Window object
+        # You also have access to View class and Window object
         # with self.view and self.window properties
         # for example
         self.view.exit()

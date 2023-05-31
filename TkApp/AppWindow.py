@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from TkApp import *
 
-
 class AppWindow(ABC):
+
     _window_props = ()
     _controller = None
     _app_window = None
@@ -22,6 +22,7 @@ class AppWindow(ABC):
         self.setupUi(self._app_window)
         self.setupEvents(self._app_window)
         self.setupPositions(self._app_window)
+
         self._app_window.setMenu(self.setupMenu())
 
         self._controller.view = self

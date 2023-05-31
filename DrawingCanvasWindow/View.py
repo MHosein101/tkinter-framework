@@ -1,24 +1,25 @@
 from TkApp import *
 
-
 class View(AppWindow):
-    _window_props = ("Painting With Tkinter", (500, 300))
+    _window_props = ("Drawing Canvas With Tkinter", (500, 300))
 
     canvas_board = None
 
     # Initialize Widgets In Window
     def setupUi(self, window):
+
         self.canvas_board = TkCanvas(window, "board")
-        window.newLabel("l1", {
-            "text": "Press and Drag the mouse to draw"
-        })
+
+        window.newLabel("l1", { "text" : "Press and Drag the mouse to draw" })
 
     # Set Widgets Positions In Window
     def setupPositions(self, window):
+
         window.pack("board", {
             "expand": PyTk.YES,
             "fill": PyTk.BOTH
         })
+
         window.pack("l1", {
             "side": PyTk.BOTTOM
         })

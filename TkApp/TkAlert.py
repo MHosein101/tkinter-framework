@@ -1,6 +1,5 @@
 from tkinter import messagebox
 
-
 class TkAlert:
 
     @staticmethod

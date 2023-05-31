@@ -1,7 +1,7 @@
 from tkinter import *
 
-
 class TkWindow:
+
     _window = None
     _title = 'Window Title'
     _size = (50, 50)
@@ -11,8 +11,6 @@ class TkWindow:
         "sub": {}
     }
     _widgets = {}
-
-    # WINDOW ----------------------------------------------------------------------
 
     def __init__(self, title="", size=None):
         self._window = Tk()
@@ -37,8 +35,6 @@ class TkWindow:
 
     def getWidgetsCount(self):
         return len(self._widgets)
-
-    # WIDGETS ----------------------------------------------------------------------
 
     def newWidget(self, name_id, widget_object):
         self._widgets[name_id] = widget_object
@@ -95,8 +91,6 @@ class TkWindow:
     def newGroup(self, name_id, group):
         self._widgets[name_id] = group
         return self
-
-    # EVENTS ----------------------------------------------------------------------
 
     def onEvent(self, widget_name, event_name, event_listener, *args):
         if len(args) > 0:
@@ -155,8 +149,6 @@ class TkWindow:
             self._widgets[widget_name].bind("<Leave>", event_listener)
         return self
 
-    # WIDGET CONFIGS ----------------------------------------------------------------------
-
     def windowConfig(self, options=None):
         if options is None:
             options = {}
@@ -182,13 +174,13 @@ class TkWindow:
             options = {}
         self._widgets[widget_name].place(options)
 
-    # WINDOW UI ----------------------------------------------------------------------
-
     def setMenu(self, template):
         appMenu = Menu(self._window)
         menuItems = {}
+
         for title, itemsList in template.items():
             menuItems[title] = Menu(appMenu, tearoff=0)
+
             for item in itemsList:
                 if item["type"] == "command":
                     menuItems[title].add_command(item["options"])
@@ -198,10 +190,12 @@ class TkWindow:
                     menuItems[title].add_checkbutton(item["options"])
                 elif item["type"] == "-":
                     menuItems[title].add_separator()
+
             appMenu.add_cascade({
                 "label": title,
                 "menu": menuItems[title]
             })
+
         self._window.config({"menu": appMenu})
         self._menu["main"] = appMenu
         self._menu["sub"] = menuItems

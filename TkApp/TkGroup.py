@@ -1,13 +1,11 @@
 from tkinter import *
 
-
 class TkGroup:
+
     _group = None
     _widgets = {}
     _parent = None
     _name_id = ""
-
-    # ----------------------------------------------------------------------
 
     def __init__(self, name_id, parent, options=None):
         if options is None:
@@ -25,8 +23,6 @@ class TkGroup:
 
     def getWidgetsCount(self, widget_name):
         return len(self._parent.getWidgetsCount(widget_name))
-
-    # WIDGET CONFIGS ----------------------------------------------------------------------
 
     def config(self, name_id, options=None):
         if options is None:
@@ -47,8 +43,6 @@ class TkGroup:
         if options is None:
             options = {}
         self._parent.getWidget(name_id).place(options)
-
-    # ----------------------------------------------------------------------
 
     def newWidget(self, name_id, widget_object):
         self._parent.newWidget(name_id, widget_object)

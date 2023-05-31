@@ -1,14 +1,16 @@
 from tkinter import Canvas, PhotoImage
 
-
 class TkCanvas:
+
     _board = None
     _parent = None
     _name_id = ""
 
     def __init__(self, parent, name_id, options=None):
+        
         if options is None:
             options = {}
+
         self._board = Canvas(parent.getWindow(), options)
         self._parent = parent
         self._name_id = name_id
@@ -16,8 +18,6 @@ class TkCanvas:
 
     def getBoard(self):
         return self._board
-
-    # OBJECTS ----------------------------------------------------------------------
 
     def arc(self, coords, options={}):
         return self._board.create_arc(coords, options)
